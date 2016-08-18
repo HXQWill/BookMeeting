@@ -3,6 +3,7 @@ package com.quan.car.qmeeting;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,6 +18,7 @@ public class RegistActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regist);
+
 
         regist_btn_regist = (Button) findViewById(R.id.regist_btn_regist);
         regist_btn_regist.setOnClickListener(new View.OnClickListener() {
