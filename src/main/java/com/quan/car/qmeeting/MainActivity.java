@@ -11,12 +11,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import dbutils.MyDatabaseHelper;
+
 public class MainActivity extends Activity {
 
     private EditText userName_et_main;
     private EditText passWord_et_main;
     private Button login_btn_main;
     private Button regist_btn_main;
+    private MyDatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         initView();
+
+        dbHelper = new MyDatabaseHelper(this, "Meeting.db", null, 1);
+        dbHelper.getWritableDatabase();
 
         login_btn_main.setOnClickListener(new View.OnClickListener() {
             @Override
