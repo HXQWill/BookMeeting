@@ -8,4 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Text.Title" parent="@android:style/Widget">
+        <item name="android:textSize">24.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/nornal</item>
+    </style>
+
+    <style name="Text.Normal" parent="@android:style/Widget">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>

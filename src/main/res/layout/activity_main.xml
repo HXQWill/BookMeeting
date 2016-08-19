@@ -5,51 +5,63 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-
+    <include layout="@layout/part_title" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="userName"
+        android:hint="请输入账号："
         android:ems="10"
         android:id="@+id/userName_et_main"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:singleLine="true"
+        style="@style/Text.Normal"
+        android:drawableLeft="@drawable/icon_username"
+        />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="passWord"
+        android:hint="请输入密码："
         android:ems="10"
         android:id="@+id/passWord_et_main"
-        android:layout_below="@+id/userName_et_main"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:singleLine="true"
+        android:drawableLeft="@drawable/icon_password"
+        android:imeOptions="actionGo"
+        style="@style/Text.Normal"
+        />
 
-    <LinearLayout
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_below="@id/passWord_et_main"
         >
 
         <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="登录"
             android:id="@+id/login_btn_main"
+            android:background="@drawable/button"
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            android:layout_alignParentLeft="true"
             />
 
         <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="注册"
             android:id="@+id/regist_btn_main"
+            android:background="@drawable/button"
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            android:layout_alignParentRight="true"
             />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </LinearLayout  >

@@ -15,7 +15,7 @@ import android.widget.Toast;
 import dbutils.MyDatabaseHelper;
 
 /**
- * Created by car on 2016/8/18.
+ * Created by 权兴权意 on 2016/8/18.
  */
 public class RegistActivity extends Activity{
 
@@ -31,24 +31,21 @@ public class RegistActivity extends Activity{
         setContentView(R.layout.regist);
 
         dbHelper = new MyDatabaseHelper(this, "Meeting.db", null, 1);
+        initView();
 
-        userName_et_regist = (EditText) findViewById(R.id.userName_et_regist);
-        passWord_et_regist = (EditText) findViewById(R.id.passWord_et_regist);
-        id_et_regist = (EditText) findViewById(R.id.id_et_regist);
-
-        regist_btn_regist = (Button) findViewById(R.id.regist_btn_regist);
         regist_btn_regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String userName = userName_et_regist.getText().toString();
+                String passWord = passWord_et_regist.getText().toString();
+                String id = id_et_regist.getText().toString();
+
                 if(TextUtils.isEmpty(userName)){
                     Toast.makeText(getApplication(), "用户名不能为空！", Toast.LENGTH_SHORT).show();
                 }
-                String passWord = passWord_et_regist.getText().toString();
                 if(TextUtils.isEmpty(passWord)){
                     Toast.makeText(getApplication(), "密码不能为空！", Toast.LENGTH_SHORT).show();
                 }
-                String id = id_et_regist.getText().toString();
                 if(TextUtils.isEmpty(id)){
                     Toast.makeText(getApplication(), "工号不能为空！", Toast.LENGTH_SHORT).show();
                 }
@@ -57,6 +54,7 @@ public class RegistActivity extends Activity{
                     Log.d("权兴权意-userName:",userName);
                     Log.d("权兴权意-passWord:",passWord);
                     Log.d("权兴权意-id:",id);
+
                     SQLiteDatabase db = dbHelper.getWritableDatabase();
                     ContentValues values = new ContentValues();
                     values.put("name", userName);
@@ -73,5 +71,12 @@ public class RegistActivity extends Activity{
 
             }
         });
+    }
+
+    private void initView() {
+        userName_et_regist = (EditText) findViewById(R.id.userName_et_regist);
+        passWord_et_regist = (EditText) findViewById(R.id.passWord_et_regist);
+        id_et_regist = (EditText) findViewById(R.id.id_et_regist);
+        regist_btn_regist = (Button) findViewById(R.id.regist_btn_regist);
     }
 }
