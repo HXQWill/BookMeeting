@@ -38,10 +38,11 @@ public class ListActivity extends Activity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Room room = roomList.get(position);
-                Toast.makeText(ListActivity.this, room.getName(),
+                Toast.makeText(ListActivity.this, "ListActivity:" + room.getName(),
                         Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(ListActivity.this, RoomListActivity.class);
+                intent.putExtra("roomName",room.getName());
                 startActivity(intent);
             }
         });

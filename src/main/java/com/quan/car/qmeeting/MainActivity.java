@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
 
         initView();
 
-        dbHelper = new MyDatabaseHelper(this, "Meeting.db", null, 1);
+        dbHelper = new MyDatabaseHelper(this, "Meeting.db", null, MyDatabaseHelper.DB_VERSION);
 
         login_btn_main.setOnClickListener(new View.OnClickListener() {
             @Override

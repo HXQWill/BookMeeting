@@ -30,7 +30,7 @@ public class RegistActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regist);
 
-        dbHelper = new MyDatabaseHelper(this, "Meeting.db", null, 1);
+        dbHelper = new MyDatabaseHelper(this, "Meeting.db", null, MyDatabaseHelper.DB_VERSION);
         initView();
 
         regist_btn_regist.setOnClickListener(new View.OnClickListener() {
