@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/meeting"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/image_iv_roomItem"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主持：甲"
+            android:textSize="20sp"
+            android:layout_marginLeft="5dip"
+            android:id="@+id/owner_tv_roomItem"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="时间：9:00-10:00"
+            android:layout_marginLeft="5dip"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/time_tv_roomItem"
+         />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="会议：神州专车需求讨论会-1"
+            android:layout_marginLeft="5dip"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/content_tv_roomItem"
+         />
+
+    </LinearLayout>
+
+</LinearLayout>
