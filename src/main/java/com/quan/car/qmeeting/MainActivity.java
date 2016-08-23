@@ -74,6 +74,7 @@ public class MainActivity extends Activity {
                         } while (cursor.moveToNext());
                     }
                     cursor.close();
+                    db.close();
                 }
 
             }

@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".RoomListActivity">
         </activity>
+        <activity android:name=".SuggestActivity">
+        </activity>
     </application>
 
 </manifest>

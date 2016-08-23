@@ -80,12 +80,12 @@ public class RoomListActivity extends Activity{
         */
     }
 
-    private void initRooms() {
-        Room room1_1 = new Room(R.drawable.meeting,"赵茜","9:00-10:00","神州专车需求讨论会-1");
-        roomList.add(room1_1);
-        Room room1_2 = new Room(R.drawable.meeting,"赵茜","10:00-10:30","神州专车需求讨论会-2");
-        roomList.add(room1_2);
-        Room room1_3 = new Room(R.drawable.meeting,"赵茜","14:00-15:00","神州专车需求讨论会-3");
-        roomList.add(room1_3);
-    }
+//    private void initRooms() {
+//        Room room1_1 = new Room(R.drawable.meeting,"赵茜","9:00-10:00","神州专车需求讨论会-1");
+//        roomList.add(room1_1);
+//        Room room1_2 = new Room(R.drawable.meeting,"赵茜","10:00-10:30","神州专车需求讨论会-2");
+//        roomList.add(room1_2);
+//        Room room1_3 = new Room(R.drawable.meeting,"赵茜","14:00-15:00","神州专车需求讨论会-3");
+//        roomList.add(room1_3);
+//    }
 }

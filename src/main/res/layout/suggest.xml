@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout   xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/part_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TimePicker
+            android:id="@+id/startTime_tp_suggest"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            />
+
+        <TimePicker
+            android:id="@+id/endTime_tp_suggest"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="确认时间"
+        android:id="@+id/yesTime_btn_suggest"
+        android:background="@drawable/button"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="会议时间："
+        android:gravity="center_vertical"
+        android:ems="10"
+        android:id="@+id/time_tv_suggest"
+        android:singleLine="true"
+        style="@style/Text.Normal"
+        android:drawableLeft="@drawable/icon_time"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/lou_rg_suggest"
+        >
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E11"
+            android:textSize="18sp"
+            android:id="@+id/e11_rb_suggest"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E13"
+            android:textSize="18sp"
+            android:id="@+id/e13_rb_suggest"
+            />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ceng_rg_suggest"
+        >
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="18sp"
+            android:id="@+id/ceng1_rb_suggest"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textSize="18sp"
+            android:id="@+id/ceng2_rb_suggest"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textSize="18sp"
+            android:id="@+id/ceng3_rb_suggest"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textSize="18sp"
+            android:id="@+id/ceng4_rb_suggest"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textSize="18sp"
+            android:id="@+id/ceng5_rb_suggest"
+            />
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="确认楼层"
+        android:id="@+id/yesFloor_btn_suggest"
+        android:background="@drawable/button"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="会议楼层："
+        android:gravity="center_vertical"
+        android:ems="10"
+        android:id="@+id/floor_tv_suggest"
+        android:singleLine="true"
+        style="@style/Text.Normal"
+        android:drawableLeft="@drawable/icon_floor"
+        />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="推荐"
+            android:id="@+id/suggest_btn_suggest"
+            android:background="@drawable/button"
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            android:layout_gravity="center"
+            />
+
+
+
+</LinearLayout>

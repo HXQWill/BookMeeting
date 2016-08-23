@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ import entitys.Room;
 public class ListActivity extends Activity{
 
     private List<Room> roomList = new ArrayList<Room>();
+    private Button suggest_btn_title;
 
 //    private String data[] = {"Room1(E11-1)","Room2(E11-1)","Room3(E11-2)","Room4(E11-3)",
 //            "Room5(E11-4)","Room6(E11-5)","Room7(E13-1)","Room8(E13-1)","Room9(E13-2)",
@@ -29,6 +31,19 @@ public class ListActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list);
+
+        suggest_btn_title = (Button) findViewById(R.id.suggest_btn_title);
+        suggest_btn_title.setVisibility(View.VISIBLE);
+        suggest_btn_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(ListActivity.this, SuggestActivity.class);
+                //intent.putExtra("roomName",room.getName());
+                startActivity(intent);
+            }
+        });
+
         initRooms();
         ArrayAdapter<Room> adapter = new ArrayAdapter<Room>(ListActivity.this,android.R.layout.simple_list_item_1,roomList);
         ListView roomList_lv_list = (ListView) findViewById(R.id.roomList_lv_list);
@@ -38,8 +53,8 @@ public class ListActivity extends Activity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Room room = roomList.get(position);
-                Toast.makeText(ListActivity.this, "ListActivity:" + room.getName(),
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ListActivity.this, "ListActivity:" + room.getName(),
+//                        Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(ListActivity.this, RoomListActivity.class);
                 intent.putExtra("roomName",room.getName());
@@ -67,5 +82,7 @@ public class ListActivity extends Activity{
         roomList.add(room8);
         Room room9 = new Room("Room9","(E13-2)");
         roomList.add(room9);
+        Room room10 = new Room("Room10","(E13-2)");
+        roomList.add(room10);
         }
 }

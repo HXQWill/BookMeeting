@@ -60,6 +60,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 				new String[] { "Room8", "赵茜", "14:00-15:00", "神州专车需求讨论会-83", "E13-1" });
 		db.execSQL("insert into Room (name, owner, time, content, local) values(?, ?, ?, ?, ?)",
 				new String[] { "Room9", "赵茜", "14:00-15:00", "神州专车需求讨论会-93", "E13-2" });
+		db.execSQL("insert into Room (name, owner, time, content, local) values(?, ?, ?, ?, ?)",
+				new String[] { "Room10", "", "", "", "E13-2" });
 		Toast.makeText(mContext, "Insert succeeded-ROOM.", Toast.LENGTH_SHORT).show();
 		Log.d("权兴权意SQLite:","Insert succeeded-ROOM.");
 	}
