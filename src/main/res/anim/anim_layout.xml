@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animation="@anim/anim_item"
+    android:animationOrder="normal"
+    android:delay="1"
+    android:interpolator="@android:anim/accelerate_interpolator">
+</layoutAnimation>
+
+<!--
+android：animation表示为子元素指定具体的入场动画，这里是我们定义的anim_item.xml
+android:animationOrder表示子元素动画的顺序，有三个值noraml(正序)reverse(逆序)random(随机)
+android：delay表示子元素动画的 时间延迟，这里0.5是子View每个动画延迟150s,每个动画的周期300s(上面定义的)乘以0.5
+-->

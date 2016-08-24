@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +21,8 @@ public class ListActivity extends Activity{
 
     private List<Room> roomList = new ArrayList<Room>();
     private Button suggest_btn_title;
+    private String roomName;
+    private String roomLocal;
 
 //    private String data[] = {"Room1(E11-1)","Room2(E11-1)","Room3(E11-2)","Room4(E11-3)",
 //            "Room5(E11-4)","Room6(E11-5)","Room7(E13-1)","Room8(E13-1)","Room9(E13-2)",
@@ -31,18 +32,6 @@ public class ListActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list);
-
-        suggest_btn_title = (Button) findViewById(R.id.suggest_btn_title);
-        suggest_btn_title.setVisibility(View.VISIBLE);
-        suggest_btn_title.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(ListActivity.this, SuggestActivity.class);
-                //intent.putExtra("roomName",room.getName());
-                startActivity(intent);
-            }
-        });
 
         initRooms();
         ArrayAdapter<Room> adapter = new ArrayAdapter<Room>(ListActivity.this,android.R.layout.simple_list_item_1,roomList);
@@ -55,9 +44,28 @@ public class ListActivity extends Activity{
                 Room room = roomList.get(position);
 //                Toast.makeText(ListActivity.this, "ListActivity:" + room.getName(),
 //                        Toast.LENGTH_SHORT).show();
+                roomName = room.getName();
+                roomLocal = room.getLocal();
                 Intent intent = new Intent();
                 intent.setClass(ListActivity.this, RoomListActivity.class);
-                intent.putExtra("roomName",room.getName());
+                intent.putExtra("roomName",roomName);
+                intent.putExtra("roomLocal",roomLocal);
+                startActivity(intent);
+            }
+        });
+
+        suggest_btn_title = (Button) findViewById(R.id.suggest_btn_title);
+        suggest_btn_title.setVisibility(View.VISIBLE);
+        suggest_btn_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(ListActivity.this, SuggestActivity.class);
+                //intent.putExtra("roomName",room.getName());
+//                intent.putExtra("roomName",roomName);
+//                intent.putExtra("roomLocal",roomLocal);
+//                Toast.makeText(ListActivity.this, "ListActivity:" + "roomName-" + roomName +"roomLocal-" + roomLocal,
+//                        Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });

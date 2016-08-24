@@ -40,19 +40,34 @@ public class SuggestActivity extends Activity{
 
     private Button suggest_btn_suggest;
     private MyDatabaseHelper dbHelper;
-    private String roomName = "Room1";
 
+    private String roomName;
+    private String roomLocal;
 
+//    private static final String TAG = "SuggestActivity";
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suggest);
+
+
+//        Log.d(TAG, "onCreate: ");
+//        Log.d(TAG, "onCreate() called with: " + "savedInstanceState = [" + savedInstanceState + "]");
+
+//        Intent i = getIntent();
+//        roomName = i.getStringExtra("roomName");
+//        roomLocal = i.getStringExtra("roomLocal");
 
         dbHelper = new MyDatabaseHelper(this, "Meeting.db", null, MyDatabaseHelper.DB_VERSION);
 
         time_tv_suggest = (TextView) findViewById(R.id.time_tv_suggest);
         startTime_tp_suggest = (TimePicker) findViewById(R.id.startTime_tp_suggest);
         startTime_tp_suggest.setIs24HourView(true);
+
+        startTime_tp_suggest.setCurrentHour(startTime_tp_suggest.getCurrentHour());
+        startTime_tp_suggest.setCurrentMinute(startTime_tp_suggest.getCurrentMinute());
+
         startTime_tp_suggest.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hour, int minute) {
@@ -69,6 +84,8 @@ public class SuggestActivity extends Activity{
                 mEndMinute = minute;
             }
         });
+
+
         yesTime_btn_suggest = (Button) findViewById(R.id.yesTime_btn_suggest);
         yesTime_btn_suggest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,6 +152,7 @@ public class SuggestActivity extends Activity{
             public void onClick(View view) {
                 floor_tv_suggest.setText(new StringBuffer().append("  ").append((mLou))
                         .append("-").append(mCeng));
+                roomLocal = mLou + "-" + mCeng;
             }
         });
 
@@ -206,6 +224,7 @@ public class SuggestActivity extends Activity{
                 Intent intent = new Intent();
                 intent.setClass(SuggestActivity.this, RoomListActivity.class);
                 intent.putExtra("roomName",roomName);
+                intent.putExtra("roomLocal",roomLocal);
                 startActivity(intent);
             }
         });

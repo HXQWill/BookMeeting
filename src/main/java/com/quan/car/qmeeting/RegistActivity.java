@@ -63,6 +63,7 @@ public class RegistActivity extends Activity{
                     db.insert("User", null, values);
                     Log.d("权兴权意:","db.insert succeed.");
                     values.clear();
+                    db.close();
 
                     Intent intent = new Intent();
                     intent.setClass(RegistActivity.this, ListActivity.class);

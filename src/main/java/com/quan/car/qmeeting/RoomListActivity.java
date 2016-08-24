@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,22 +26,43 @@ public class RoomListActivity extends Activity{
     private MyDatabaseHelper dbHelper;
     private TextView title_tv_title;
 
+    private Button newRoom_btn_title;
+
+    private String roomName;
+    private String roomLocal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.room_list);
 
         Intent i = getIntent();
-        String roomName = i.getStringExtra("roomName");
+        roomName = i.getStringExtra("roomName");
+        roomLocal = i.getStringExtra("roomLocal");
+
+        newRoom_btn_title = (Button) findViewById(R.id.newRoom_btn_title);
+        newRoom_btn_title.setVisibility(View.VISIBLE);
+        newRoom_btn_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(RoomListActivity.this, NewRoomActivity.class);
+                intent.putExtra("roomName",roomName);
+                intent.putExtra("roomLocal",roomLocal);
+                startActivity(intent);
+            }
+        });
+
+
         Toast.makeText(RoomListActivity.this, "RoomListActivity:" + roomName,
                 Toast.LENGTH_SHORT).show();
         title_tv_title = (TextView) findViewById(R.id.title_tv_title);
-        title_tv_title.setText("神州之约-" + roomName);
+        title_tv_title.setText("神州之约" + roomName + roomLocal);
 
         dbHelper = new MyDatabaseHelper(this, "Meeting.db", null, MyDatabaseHelper.DB_VERSION);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         String col[] = {"content","owner","time"};
-        Cursor cursor = db.query("Room",col,"name=?",new String[]{roomName},null,null,null);
+        Cursor cursor = db.query("Room",col,"name=?",new String[]{roomName},null,null,"time");
         if (cursor.moveToFirst()) {
             do {
                 String contentCur = cursor.getString(cursor
@@ -50,11 +71,11 @@ public class RoomListActivity extends Activity{
                         .getColumnIndex("owner"));
                 String timeCur = cursor.getString(cursor
                         .getColumnIndex("time"));
-                Log.d("权兴权意：", "contentCur-" + contentCur);
-                Log.d("权兴权意：", "ownerCur-" + ownerCur);
-                Log.d("权兴权意：", "timeCur-" + timeCur);
-                Toast.makeText(RoomListActivity.this, "RoomListActivity:" + "contentCur-" + contentCur+"ownerCur-" + ownerCur + "timeCur-" + timeCur,
-                        Toast.LENGTH_SHORT).show();
+//                Log.d("权兴权意：", "contentCur-" + contentCur);
+//                Log.d("权兴权意：", "ownerCur-" + ownerCur);
+//                Log.d("权兴权意：", "timeCur-" + timeCur);
+//                Toast.makeText(RoomListActivity.this, "RoomListActivity:" + "contentCur-" + contentCur+"ownerCur-" + ownerCur + "timeCur-" + timeCur,
+//                        Toast.LENGTH_SHORT).show();
                 Room room = new Room(R.drawable.meeting,"发起人：" + ownerCur,"时间：" + timeCur,"会议：" + contentCur);
                 roomList.add(room);
             } while (cursor.moveToNext());

@@ -39,11 +39,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 		Toast.makeText(mContext, "Create succeeded-USER&ROOM.", Toast.LENGTH_SHORT).show();
 		Log.d("权兴权意SQLite:","Create succeeded-USER&ROOM.");
 		db.execSQL("insert into Room (name, owner, time, content, local) values(?, ?, ?, ?, ?)",
-				new String[] { "Room1", "赵茜", "9:00-10:00", "神州专车需求讨论会-1", "E11-1" });
+				new String[] { "Room1", "赵茜", "10:00-10:30", "神州专车需求讨论会-1", "E11-1" });
 		db.execSQL("insert into Room (name, owner, time, content, local) values(?, ?, ?, ?, ?)",
-				new String[] { "Room1", "赵茜", "10:00-10:30", "神州专车需求讨论会-2", "E11-1" });
+				new String[] { "Room1", "赵茜", "14:00-15:00", "神州专车需求讨论会-2", "E11-1" });
 		db.execSQL("insert into Room (name, owner, time, content, local) values(?, ?, ?, ?, ?)",
-				new String[] { "Room1", "赵茜", "14:00-15:00", "神州专车需求讨论会-3", "E11-1" });
+				new String[] { "Room1", "赵茜", "17:00-18:00", "神州专车需求讨论会-3", "E11-1" });
 		db.execSQL("insert into Room (name, owner, time, content, local) values(?, ?, ?, ?, ?)",
 				new String[] { "Room2", "赵茜", "14:00-15:00", "神州专车需求讨论会-23", "E11-1" });
 		db.execSQL("insert into Room (name, owner, time, content, local) values(?, ?, ?, ?, ?)",
