@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import dbutils.MyDatabaseHelper;
+import utils.MyDatabaseHelper;
 
 public class MainActivity extends Activity {
 
@@ -21,6 +21,8 @@ public class MainActivity extends Activity {
     private Button login_btn_main;
     private Button regist_btn_main;
     private MyDatabaseHelper dbHelper;
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +85,7 @@ public class MainActivity extends Activity {
         regist_btn_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, RegistActivity.class);
                 startActivity(intent);

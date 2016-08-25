@@ -5,17 +5,21 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import dbutils.MyDatabaseHelper;
 import entitys.Room;
+import utils.MyDatabaseHelper;
 
 /**
  * Created by car on 2016/8/18.
@@ -30,6 +34,8 @@ public class RoomListActivity extends Activity{
 
     private String roomName;
     private String roomLocal;
+
+    private static final String TAG = "RoomListActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +77,26 @@ public class RoomListActivity extends Activity{
                         .getColumnIndex("owner"));
                 String timeCur = cursor.getString(cursor
                         .getColumnIndex("time"));
+
+                JSONObject jsonObjectServer = new JSONObject();
+                try {
+                    jsonObjectServer.put("content",contentCur);
+                    jsonObjectServer.put("owner",ownerCur);
+                    jsonObjectServer.put("time",timeCur);
+                    Log.d(TAG + "模拟服务器JSON：", jsonObjectServer.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    JSONObject jsonObjectClient = new JSONObject(jsonObjectServer.toString());
+                    Log.d(TAG + "解析后->", "content:" + jsonObjectClient.getString("content")
+                            + ", owner:" + jsonObjectClient.getString("owner")
+                            + ", time:" + jsonObjectClient.getString("time") );
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
 //                Log.d("权兴权意：", "contentCur-" + contentCur);
 //                Log.d("权兴权意：", "ownerCur-" + ownerCur);
 //                Log.d("权兴权意：", "timeCur-" + timeCur);
@@ -82,6 +108,17 @@ public class RoomListActivity extends Activity{
         }
         cursor.close();
         db.close();
+
+//        JSONObject roomJson = new JSONObject();
+//        try {
+//            roomJson.put("owner", "A");
+//            roomJson.put("time", "10:00-11:00");
+//            roomJson.put("content", "神州专车需求讨论会");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        Log.d(TAG, roomJson.toString());
+//        Toast.makeText(RoomListActivity.this,roomJson.toString(),Toast.LENGTH_SHORT).show();
 
         //initRooms();
         RoomAdapter adapter = new RoomAdapter(RoomListActivity.this,

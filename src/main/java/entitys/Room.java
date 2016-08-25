@@ -108,4 +108,19 @@ public class Room {
         */
         return name + local;
     }
+
+//    public String toString(int i) {
+//        /*
+//        return "Room{" +
+//                "name='" + name + '\'' +
+//                ", owner='" + owner + '\'' +
+//                ", time='" + time + '\'' +
+//                ", content='" + content + '\'' +
+//                ", local='" + local + '\'' +
+//                ", id=" + id +
+//                ", imageId=" + imageId +
+//                '}';
+//        */
+//        return imageId + owner + time + content;
+//    }
 }

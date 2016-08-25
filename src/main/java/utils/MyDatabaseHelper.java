@@ -1,4 +1,4 @@
-package dbutils;
+package utils;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
