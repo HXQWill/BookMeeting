@@ -84,11 +84,7 @@ public class RoomListActivity extends Activity{
                     jsonObjectServer.put("owner",ownerCur);
                     jsonObjectServer.put("time",timeCur);
                     Log.d(TAG + "模拟服务器JSON：", jsonObjectServer.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
 
-                try {
                     JSONObject jsonObjectClient = new JSONObject(jsonObjectServer.toString());
                     Log.d(TAG + "解析后->", "content:" + jsonObjectClient.getString("content")
                             + ", owner:" + jsonObjectClient.getString("owner")

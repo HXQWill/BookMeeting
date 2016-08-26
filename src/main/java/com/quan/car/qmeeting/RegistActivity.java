@@ -74,6 +74,12 @@ public class RegistActivity extends Activity{
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finish();
+    }
+
     private void initView() {
         userName_et_regist = (EditText) findViewById(R.id.userName_et_regist);
         passWord_et_regist = (EditText) findViewById(R.id.passWord_et_regist);

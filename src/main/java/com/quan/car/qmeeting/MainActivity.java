@@ -95,6 +95,12 @@ public class MainActivity extends Activity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finish();
+    }
+
     private void initView() {
         userName_et_main = (EditText) findViewById(R.id.userName_et_main);
         passWord_et_main = (EditText) findViewById(R.id.passWord_et_main);

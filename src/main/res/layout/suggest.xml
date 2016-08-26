@@ -39,13 +39,14 @@
         android:textColor="#ffffff"
         android:textSize="22sp"
         android:layout_gravity="center"
+        android:layout_margin="2dp"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="会议时间："
+        android:hint=" 会议时间："
         android:gravity="center_vertical"
         android:ems="10"
         android:id="@+id/time_tv_suggest"
@@ -137,13 +138,14 @@
         android:textColor="#ffffff"
         android:textSize="22sp"
         android:layout_gravity="center"
+        android:layout_margin="2dp"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="会议楼层："
+        android:hint=" 会议楼层："
         android:gravity="center_vertical"
         android:ems="10"
         android:id="@+id/floor_tv_suggest"
@@ -161,6 +163,7 @@
             android:textColor="#ffffff"
             android:textSize="22sp"
             android:layout_gravity="center"
+            android:layout_margin="2dp"
             />
 
 
