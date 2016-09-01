@@ -63,7 +63,7 @@ public class RoomListActivity extends Activity{
         Toast.makeText(RoomListActivity.this, "RoomListActivity:" + roomName,
                 Toast.LENGTH_SHORT).show();
         title_tv_title = (TextView) findViewById(R.id.title_tv_title);
-        title_tv_title.setText("神州之约" + roomName + roomLocal);
+        title_tv_title.setText(roomName + roomLocal);
 
         dbHelper = new MyDatabaseHelper(this, "Meeting.db", null, MyDatabaseHelper.DB_VERSION);
         SQLiteDatabase db = dbHelper.getWritableDatabase();

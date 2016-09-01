@@ -52,7 +52,6 @@ public class SuggestActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suggest);
 
-
 //        Log.d(TAG, "onCreate: ");
 //        Log.d(TAG, "onCreate() called with: " + "savedInstanceState = [" + savedInstanceState + "]");
 
@@ -74,6 +73,43 @@ public class SuggestActivity extends Activity{
             public void onTimeChanged(TimePicker view, int hour, int minute) {
                 mStartHour = hour;
                 mStartMinute = minute;
+
+//                try {
+//                    Field mMinutePicker = view.getClass().getDeclaredField("mMinutePicker");
+//
+//                    mMinutePicker.setAccessible(true);
+//                    Object value = mMinutePicker.get(view);
+//                    Log.i(TAG,value.getClass()+"");
+////反射NumberPicker里面的mCurrent此属性值是显示给用户看的
+//                    Field mCurrent = value.getClass().getDeclaredField("mCurrent");
+//                    mCurrent.setAccessible(true);
+//                    //反射TimePicker类里面的mCurrentMinute属性，此属性是保存用户设置的时间
+//                    Field mCurrentMinute = view.getClass().getDeclaredField("mCurrentMinute");
+//                    mCurrentMinute.setAccessible(true);
+//
+//                    if(minute>0&&minute<30){
+//                        mCurrent.set(value, 30);
+//                        mCurrentMinute.set(view, 30);
+//                    }
+//                    else{
+//                        mCurrent.set(value, 0);
+//                        mCurrentMinute.set(view, 0);
+//                    }
+//
+//                    //判断用户是否点击了减按钮
+//                    if(minute==59){//如果点击了时间的减按钮那么minute值为00---->59或30---->29
+//                        //00---->59
+//                        mCurrent.set(value, 30);
+//                        mCurrentMinute.set(view, 30);
+//                    }
+//                    else if(minute == 29){//30---->29
+//                        mCurrent.set(value, 0);
+//                        mCurrentMinute.set(view, 0);
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+
             }
         });
         endTime_tp_suggest = (TimePicker) findViewById(R.id.endTime_tp_suggest);

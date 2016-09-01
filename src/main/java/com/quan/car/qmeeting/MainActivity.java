@@ -37,21 +37,20 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 String userName = userName_et_main.getText().toString();
-                if(TextUtils.isEmpty(userName)){
+                if (TextUtils.isEmpty(userName)) {
                     Toast.makeText(getApplication(), "用户名不能为空！", Toast.LENGTH_SHORT).show();
                 }
                 String passWord = passWord_et_main.getText().toString();
-                if(TextUtils.isEmpty(passWord)){
+                if (TextUtils.isEmpty(passWord)) {
                     Toast.makeText(getApplication(), "密码不能为空！", Toast.LENGTH_SHORT).show();
                 }
 
-                if(!TextUtils.isEmpty(userName)&&!TextUtils.isEmpty(passWord)){
-                    Log.d("权兴权意-userName:",userName);
-                    Log.d("权兴权意-passWord:",passWord);
-                    Log.d("encodeFromC(passWord):",JniUtils.encodeFromC(passWord,passWord.length()));
-                    String encodePassWord = JniUtils.encodeFromC(passWord,passWord.length());
-                    Log.d("decodeFromC(passWord):",JniUtils.decodeFromC(encodePassWord,encodePassWord.length()));
-
+                if (!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(passWord)) {
+                    Log.d("权兴权意-userName:", userName);
+                    Log.d("权兴权意-passWord:", passWord);
+                    Log.d("encodeFromC(passWord):", JniUtils.encodeFromC(passWord, passWord.length()));
+                    String encodePassWord = JniUtils.encodeFromC(passWord, passWord.length());
+                    Log.d("decodeFromC(passWord):", JniUtils.decodeFromC(encodePassWord, encodePassWord.length()));
                     SQLiteDatabase db = dbHelper.getWritableDatabase();
                     Cursor cursor = db.query("User", null, null, null, null, null,
                             null);
@@ -67,7 +66,7 @@ public class MainActivity extends Activity {
                             Log.d("权兴权意：", "passwordCur-" + passwordCur);
                             Log.d("权兴权意：", "idCur-" + idCur);
 
-                            if(userName.equals(nameCur)&&passWord.equals(passwordCur)){
+                            if (userName.equals(nameCur) && passWord.equals(passwordCur)) {
                                 Intent intent = new Intent();
                                 intent.setClass(MainActivity.this, ListActivity.class);
                                 startActivity(intent);
@@ -107,5 +106,13 @@ public class MainActivity extends Activity {
         login_btn_main = (Button) findViewById(R.id.login_btn_main);
         regist_btn_main = (Button) findViewById(R.id.regist_btn_main);
     }
+
+    public void sayHello(String content) {
+        if (content != null) {
+            Log.d(TAG, "sayHello: " + content);
+        }
+
+    }
+
 }
 
