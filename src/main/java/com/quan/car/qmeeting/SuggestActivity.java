@@ -15,13 +15,13 @@ import android.widget.TimePicker;
 import utils.MyDatabaseHelper;
 
 /**
- * Created by 权兴权意 on 2016/8/23.
+ * Created by xingquan.he on 2016/8/23.
  */
 public class SuggestActivity extends Activity{
 
-    private TimePicker startTime_tp_suggest;
-    private TimePicker endTime_tp_suggest;
-    private TextView time_tv_suggest;
+    private TimePicker mStartTimePicker;
+    private TimePicker mEndTimePicker;
+    private TextView mTimeText;
     private Button yesTime_btn_suggest;
     private int mStartHour;
     private int mStartMinute;
@@ -61,14 +61,14 @@ public class SuggestActivity extends Activity{
 
         dbHelper = new MyDatabaseHelper(this, "Meeting.db", null, MyDatabaseHelper.DB_VERSION);
 
-        time_tv_suggest = (TextView) findViewById(R.id.time_tv_suggest);
-        startTime_tp_suggest = (TimePicker) findViewById(R.id.startTime_tp_suggest);
-        startTime_tp_suggest.setIs24HourView(true);
+        mTimeText = (TextView) findViewById(R.id.time_tv_suggest);
+        mStartTimePicker = (TimePicker) findViewById(R.id.startTime_tp_suggest);
+        mStartTimePicker.setIs24HourView(true);
 
-        startTime_tp_suggest.setCurrentHour(startTime_tp_suggest.getCurrentHour());
-        startTime_tp_suggest.setCurrentMinute(startTime_tp_suggest.getCurrentMinute());
+        mStartTimePicker.setCurrentHour(mStartTimePicker.getCurrentHour());
+        mStartTimePicker.setCurrentMinute(mStartTimePicker.getCurrentMinute());
 
-        startTime_tp_suggest.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+        mStartTimePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hour, int minute) {
                 mStartHour = hour;
@@ -112,9 +112,9 @@ public class SuggestActivity extends Activity{
 
             }
         });
-        endTime_tp_suggest = (TimePicker) findViewById(R.id.endTime_tp_suggest);
-        endTime_tp_suggest.setIs24HourView(true);
-        endTime_tp_suggest.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+        mEndTimePicker = (TimePicker) findViewById(R.id.endTime_tp_suggest);
+        mEndTimePicker.setIs24HourView(true);
+        mEndTimePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hour, int minute) {
                 mEndHour = hour;
@@ -127,7 +127,7 @@ public class SuggestActivity extends Activity{
         yesTime_btn_suggest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                time_tv_suggest.setText(new StringBuffer().append(" ").append(FormatTime(mStartHour))
+                mTimeText.setText(new StringBuffer().append(" ").append(FormatTime(mStartHour))
                         .append(":").append(FormatTime(mStartMinute))
                         .append("-").append(FormatTime(mEndHour))
                         .append(":").append(FormatTime(mEndMinute)));

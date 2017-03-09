@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:background="#e9d85d"
+    android:background="@color/common_color_ten_c7a770"
     android:paddingLeft="1dp"
     android:paddingRight="1dp"
     android:layout_width="fill_parent"

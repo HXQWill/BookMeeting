@@ -17,9 +17,9 @@ import utils.DepthPageTransformer;
 
 public class GuideActivity extends Activity {
 
-    private ViewPager image_vp_guide;
-    private int mImgIds[] = new int[]{R.drawable.p1,R.drawable.p2,R.drawable.p3,R.drawable.p4};
-    private List<ImageView> mImages = new ArrayList<ImageView>();
+    private ViewPager mGuideViewPager;
+    private int mImgIds[] = new int[]{R.drawable.p1,R.drawable.p2,R.drawable.p3};
+    private List<ImageView> mImagesList;
     private static final String TAG = "GuideActivity";
 
     @Override
@@ -28,15 +28,16 @@ public class GuideActivity extends Activity {
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
 //        getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN , WindowManager.LayoutParams. FLAG_FULLSCREEN);
 
-
         setContentView(R.layout.guide);
 
-        image_vp_guide = (ViewPager) findViewById(R.id.image_vp_guide);
+        mImagesList = new ArrayList<ImageView>();
+
+        mGuideViewPager = (ViewPager) findViewById(R.id.image_vp_guide);
 
         //添加切换动画效果(3.0以上)
-        image_vp_guide.setPageTransformer(true,new DepthPageTransformer());
+        mGuideViewPager.setPageTransformer(true,new DepthPageTransformer());
 
-        image_vp_guide.setAdapter(new PagerAdapter() {
+        mGuideViewPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
                 return mImgIds.length;
@@ -66,17 +67,16 @@ public class GuideActivity extends Activity {
                 });
 
                 container.addView(imageView);
-                mImages.add(imageView);
+                mImagesList.add(imageView);
 
                 return imageView;
             }
 
             @Override
             public void destroyItem(ViewGroup container, int position, Object object) {
-                container.removeView(mImages.get(position));
+                container.removeView(mImagesList.get(position));
             }
         });
-
 
     }
 }

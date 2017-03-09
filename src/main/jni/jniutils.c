@@ -1,5 +1,5 @@
 //
-// Created by car on 2016/8/17.
+// Created by xingquan.he on 2016/8/17.
 //
 
 #include "com_quan_car_qmeeting_JniUtils.h"

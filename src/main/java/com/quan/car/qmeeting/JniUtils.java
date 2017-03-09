@@ -1,7 +1,7 @@
 package com.quan.car.qmeeting;
 
 /**
- * Created by car on 2016/8/17.
+ * Created by xingquan.he on 2016/8/17.
  */
 public class JniUtils {
     public static native String getStringFormC();
